@@ -28,7 +28,7 @@ def load_economic_calendar():
         columns=("Title", "Date", "Actual", "Forecast", "Previous", "Unit")
     )
     for i in j["result"]:
-        if dateparser.parse(i["date"]) > datetime.now(tz=zoneinfo.ZoneInfo("UTC")):
+        if dateparser.parse(i["date"]) > dateparser.parse("2023-02-01 00:00:00Z"):
             continue
 
         df.loc[i["id"]] = [
